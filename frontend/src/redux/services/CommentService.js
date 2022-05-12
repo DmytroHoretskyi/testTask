@@ -17,12 +17,7 @@ const deleteComment = async (dispatch, {id, productId}) => {
     const comments = await axios.get(`/comments/${productId}`);
     dispatch(deleteCommentAction([products.data, comments.data]));
 }
-//
-// const updateProduct = async (dispatch, {id, name, count, imageUrl, weight, width, height}) => {
-//     const response = await axios.put(`/product/${id}`, {name, count, imageUrl, weight, width, height});
-//     dispatch(updateProductAction(response.data));
-// };
-//
+
 const commentsApiService = {
     getComments,
     createNewComment,
