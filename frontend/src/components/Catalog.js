@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import {Box, Button} from "@mui/material";
 import Product from "./product/Product";
 import productsApiService from "../redux/services/productService";
