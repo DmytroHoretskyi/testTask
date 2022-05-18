@@ -26,16 +26,15 @@ function replace(arrayToInsert, itemToInsert) {
 
 function productReducer(state = initialState, {type, payload} = {}) {
     if (type === GET_ALL_PRODUCTS) {
-        return {...state, products: payload};
+        return {products: payload};
     }
     if (type === SORT_BY_NAME) {
-        const sortedProducts = payload.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
-        return {products: sortedProducts}
+        const sortedProducts = [...payload].sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
+        return {...state, products: sortedProducts}
     }
     if (type === SORT_BY_COUNT) {
-        const sortedProducts = payload.sort((a, b) => b.count - a.count);
-        console.log({products: sortedProducts})
-        return {products: sortedProducts}
+        const sortedProducts = [...payload].sort((a, b) => b.count - a.count);
+        return {...state, products: sortedProducts}
     }
     if (type === CREATE_NEW_PRODUCT) {
         return {...state, products: [...state.products, payload]}
