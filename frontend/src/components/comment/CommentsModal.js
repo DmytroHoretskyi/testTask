@@ -48,7 +48,7 @@ export default function CommentsModal({isOpened, onClose, productId}) {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    {comments.map((comment) => {
+                    {comments?.map((comment) => {
                         return (
                             <Comment comment={comment} key={comment.id}/>
                         )
